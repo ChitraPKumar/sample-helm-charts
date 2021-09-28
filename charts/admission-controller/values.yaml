@@ -80,8 +80,8 @@ resources: {}
 nodeSelector: {}
 
 deployment:
-  image: lacework/helios
-  tag: v0.1
+  image:
+  tag:
   pullPolicy: Always
   replicaCount: 1
   service:

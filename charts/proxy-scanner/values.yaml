@@ -3,7 +3,7 @@
 # The following values may be set or changed to configure the proxy-scanner service
 #
 replicaCount: 1
-image: lacework/proxy-scanner-private
+image:
 
 # CK: Should have config map here too
 
