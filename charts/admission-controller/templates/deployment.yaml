@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    role: {{ .Release.Name }}
+    app: {{ include "helios.fullname" . }}
+  name: {{ include "helios.fullname" . }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ include "helios.fullname" . }}
+    spec:
+      securityContext:
+        runAsUser: 11431
+        runAsGroup: 11433
+        fsGroup: 11433
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: helios
+          image: "{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8443
+          livenessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            httpGet:
+              scheme: HTTPS
+              path: /healthz
+              port: 8443
+          volumeMounts:
+            - name: "certs"
+              mountPath: "/certs"
+            - name: "helios-admission-volume"
+              mountPath: "/config"
+      volumes:
+        - name: "certs"
+          secret:
+            secretName: {{ .Values.certs.name }}
+        - name: "helios-admission-volume"
+          configMap:
+            name: "helios-cfgmap"
+  selector:
+    matchLabels:
+      app: {{ include "helios.fullname" . }}

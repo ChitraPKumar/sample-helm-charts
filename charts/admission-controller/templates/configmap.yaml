@@ -1,0 +1,34 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}-cfgmap
+data:
+  helios.yaml: |
+    ---
+    helios:
+      logger:
+        debug: {{ .Values.logger.debug }}
+
+      admission:
+        tls_port: {{ .Values.admission.tls_port }}
+        cert_file_path: {{ .Values.admission.cert_file_path }}
+        cert_key_path: {{ .Values.admission.cert_key_path }}
+
+      lacework:
+        account: {{ .Values.lacework.account }}
+        api_key: {{ .Values.lacework.api_key }}
+        api_secret: {{ .Values.lacework.api_secret }}
+
+      policy:
+        block_exec: {{ .Values.policy.block_exec }}
+        bypass_scope: {{ .Values.policy.bypass_scope }}
+        opa: {{ .Values.policy.opa }}
+        server: {{ .Values.policy.server }}
+        port: {{ .Values.policy.port }}
+
+      scanner:
+        server: {{ .Values.scanner.server }}
+        namespace: {{ .Values.scanner.namespace }}
+        port: {{ .Values.scanner.port }}
+        path: {{ .Values.scanner.path }}
+        timeout: {{ .Values.scanner.timeout }}
