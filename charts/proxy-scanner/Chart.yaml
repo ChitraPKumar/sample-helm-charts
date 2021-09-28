@@ -2,7 +2,7 @@ apiVersion: v2
 name: proxy-scanner
 description: A Helm chart for Lacework Proxy Scanner
 type: application
-version: 0.0.2
+version: 0.0.3
 appVersion: "1.0"
 home: https://ChitraPKumar.github.io/proxy-scanner/
 
