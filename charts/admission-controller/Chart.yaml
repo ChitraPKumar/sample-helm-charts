@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "0.0.2"
-version: 1.0.0
+version: 1.0.1
 name: admission-controller
 description: A Helm chart for Helios Admission Controller
 type: application
