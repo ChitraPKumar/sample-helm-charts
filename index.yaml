@@ -1,5 +1,24 @@
 apiVersion: v1
 entries:
+  admission-controller:
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2021-09-28T23:17:32.876253622Z"
+    description: A Helm chart for Helios Admission Controller
+    digest: e4460b3275a5808dc9d95c55f4ff2460511b401911b98567f49ed62ed98c42fa
+    home: https://ChitraPKumar.github.io/admission-controller/
+    keywords:
+    - admission-controller
+    - runtime-security
+    - lacework
+    - helios
+    maintainers:
+    - name: Lacework
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.1/admission-controller-1.0.1.tgz
+    version: 1.0.1
   helios-go:
   - apiVersion: v2
     appVersion: 0.0.2
@@ -20,6 +39,17 @@ entries:
     - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/helios-go-1.0.0/helios-go-1.0.0.tgz
     version: 1.0.0
   proxy-scanner:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-09-28T23:17:32.993624657Z"
+    description: A Helm chart for Lacework Proxy Scanner
+    digest: 0b907944f4d04c749d8a32a2ff5de93cfa4c695d83bb47eb2ceb0694179264fb
+    home: https://ChitraPKumar.github.io/proxy-scanner/
+    name: proxy-scanner
+    type: application
+    urls:
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-1.0.1/proxy-scanner-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: "1.0"
     created: "2021-09-28T23:01:31.394579924Z"
