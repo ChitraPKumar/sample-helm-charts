@@ -3,6 +3,17 @@ entries:
   proxy-scanner:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-09-28T20:05:21.623054094Z"
+    description: A Helm chart for Lacework Proxy Scanner
+    digest: a109b6e5d4f682b1299533e03645a3c12d64f9d60eca2b580e154e3cbe0ec113
+    home: https://ChitraPKumar.github.io/proxy-scanner/
+    name: proxy-scanner
+    type: application
+    urls:
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-0.0.5/proxy-scanner-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-09-28T13:13:06.448380246Z"
     description: A Helm chart for Lacework Proxy Scanner
     digest: d9f7030cc9f813fba9ab5e449655fc0c730cefe1fe5a35874444fd479f4b007a
