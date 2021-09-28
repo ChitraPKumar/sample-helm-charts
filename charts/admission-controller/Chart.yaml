@@ -1,12 +1,11 @@
 apiVersion: v2
 appVersion: "0.0.2"
-version: 0.0.1
+version: 1.0.0
 name: helios-go
 description: A Helm chart for Helios Admission Controller
 type: application
 keywords:
 - admission-controller
-- opa
 - runtime-security
 - lacework
 - helios
