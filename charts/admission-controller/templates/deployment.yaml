@@ -12,10 +12,10 @@ spec:
       labels:
         app: {{ include "helios.fullname" . }}
     spec:
-      {{- with .Values.securityContext }}
       securityContext:
-        {{- toYaml . | indent 8 }}
-      {{- end }}
+        runAsUser: 11431
+        runAsGroup: 11433
+        fsGroup: 11433
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
         - name: {{ include "helios.name" . }}
