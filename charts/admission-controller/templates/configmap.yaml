@@ -14,17 +14,9 @@ data:
         cert_file_path: {{ .Values.admission.cert_file_path }}
         cert_key_path: {{ .Values.admission.cert_key_path }}
 
-      lacework:
-        account: {{ .Values.lacework.account }}
-        api_key: {{ .Values.lacework.api_key }}
-        api_secret: {{ .Values.lacework.api_secret }}
-
       policy:
         block_exec: {{ .Values.policy.block_exec }}
         bypass_scope: {{ .Values.policy.bypass_scope }}
-        opa: {{ .Values.policy.opa }}
-        server: {{ .Values.policy.server }}
-        port: {{ .Values.policy.port }}
 
       scanner:
         server: {{ .Values.scanner.server }}

@@ -1,11 +1,11 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ .Values.clusterRoleBinding.name }}
+  name: {{ include "helios.fullname" . }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ .Values.clusterRole.name }}
+  name: {{ include "helios.fullname" . }}
 subjects:
   - kind: ServiceAccount
     name: {{ .Values.serviceAccount.name }}

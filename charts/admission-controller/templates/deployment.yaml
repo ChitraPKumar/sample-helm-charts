@@ -6,21 +6,21 @@ metadata:
     app: {{ include "helios.fullname" . }}
   name: {{ include "helios.fullname" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicaCount }}
   template:
     metadata:
       labels:
         app: {{ include "helios.fullname" . }}
     spec:
+      {{- with .Values.securityContext }}
       securityContext:
-        runAsUser: 11431
-        runAsGroup: 11433
-        fsGroup: 11433
+        {{- toYaml . | indent 8 }}
+      {{- end }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
-        - name: helios
+        - name: {{ include "helios.name" . }}
           image: "{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.deployment.pullPolicy }}
           ports:
             - containerPort: 8443
           livenessProbe:
@@ -33,8 +33,10 @@ spec:
           volumeMounts:
             - name: "certs"
               mountPath: "/certs"
+              readOnly: true
             - name: "helios-admission-volume"
               mountPath: "/config"
+              readOnly: true
       volumes:
         - name: "certs"
           secret:

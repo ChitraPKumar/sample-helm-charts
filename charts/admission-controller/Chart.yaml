@@ -1,8 +1,8 @@
 apiVersion: v2
 appVersion: "0.0.2"
-version: 1.0.1
+version: 1.0.2
 name: admission-controller
-description: A Helm chart for Helios Admission Controller
+description: Lacework admission controller using Lacework proxy scanner
 type: application
 keywords:
 - admission-controller
@@ -11,5 +11,6 @@ keywords:
 - helios
 home: https://ChitraPKumar.github.io/admission-controller/
 maintainers:
-  - name: Lacework
+  - name: chitrapkumar
+    email: chitra.kumar@lacework.net
 

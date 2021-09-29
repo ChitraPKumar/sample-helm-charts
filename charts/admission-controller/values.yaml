@@ -9,24 +9,9 @@ admission:
   cert_file_path: "/certs/helios.crt"
   cert_key_path: "/certs/helios.key"
 
-certs:
-  create: false # Set to false for existing certs
-  name: helios-admission-certs # If you're using existing certs change the name to existing secret name
-  serverCertificate:
-  serverKey:
-  caCert:
-
-lacework:
-  account:
-  api_key:
-  api_secret:
-
 policy:
   block_exec: false
   bypass_scope: "kube-system,kube-public,lacework,lacework-dev"
-  opa: false
-  server:
-  port: 8443
 
 scanner:
   server: "proxy-scanner"
@@ -42,17 +27,13 @@ fullnameOverride: "helios"
 serviceAccount:
   name: helios-admission-sa
 
-clusterRole:
-  name: helios-admission
-
-clusterRoleBinding:
-  name: helios-admission
-
-role:
-  name: helios-admission
-
-roleBinding:
-  name: helios-admission
+#TBD: Where is this really used?
+certs:
+  create: false # Set to false for existing certs
+  name: helios-admission-certs # If you're using existing certs change the name to existing secret name
+  serverCertificate:
+  serverKey:
+  caCert:
 
 webhooks:
   caBundle:
@@ -80,8 +61,8 @@ resources: {}
 nodeSelector: {}
 
 deployment:
-  image:
-  tag:
+  image: lacework/helios
+  tag: v0.1
   pullPolicy: Always
   replicaCount: 1
   service:
