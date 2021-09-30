@@ -3,6 +3,24 @@ entries:
   admission-controller:
   - apiVersion: v2
     appVersion: 0.0.2
+    created: "2021-09-30T06:41:45.427475106Z"
+    description: Lacework admission controller using Lacework proxy scanner
+    digest: b9ef59339aaa807f04899caa2b4ea4132cd83f5eb19b9c80807a86fbc761ea6e
+    home: https://ChitraPKumar.github.io/admission-controller/
+    keywords:
+    - admission-controller
+    - runtime-security
+    - lacework
+    maintainers:
+    - email: chitra.kumar@lacework.net
+      name: chitrapkumar
+    name: admission-controller
+    type: application
+    urls:
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.4/admission-controller-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 0.0.2
     created: "2021-09-29T23:13:03.611696438Z"
     description: Lacework admission controller using Lacework proxy scanner
     digest: 14858c9a03f1bd0043fc3df2ead54d48ef5868e9fa6f8cc2616f077f6f955ad7
