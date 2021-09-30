@@ -4,5 +4,5 @@ metadata:
   name: {{ .Values.certs.name }}
 data:
   ca.crt: {{ .Values.certs.caCert }} # root cert
-  helios.crt: {{ .Values.certs.serverCertificate }}  # place server cert
-  helios.key: {{ .Values.certs.serverKey }}  # place server key
+  admission.crt: {{ .Values.certs.serverCertificate }}  # place server cert
+  admission.key: {{ .Values.certs.serverKey }}  # place server key

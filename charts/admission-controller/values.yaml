@@ -1,4 +1,4 @@
-name: helios
+name: lacework-admission-controller
 
 # Configuration
 logger:
@@ -6,31 +6,31 @@ logger:
 
 admission:
   tls_port: 8443
-  cert_file_path: "/certs/helios.crt"
-  cert_key_path: "/certs/helios.key"
+  cert_file_path: "/certs/admission.crt"
+  cert_key_path: "/certs/admission.key"
 
 policy:
   block_exec: false
   bypass_scope: "kube-system,kube-public,lacework,lacework-dev"
 
 scanner:
-  server: "proxy-scanner"
+  server: "lacework-proxy-scanner"
   namespace: "lacework-dev"
   port: "8080"
   path: "v1/scan"
   timeout: 30000
 
 # Kubernetes
-nameOverride: "helios"
-fullnameOverride: "helios"
+nameOverride: "lacework-admission-controller"
+fullnameOverride: "lacework-admission-controller"
 
 serviceAccount:
-  name: helios-admission-sa
+  name: lacework-admission-sa
 
 #TBD: Where is this really used?
 certs:
   create: false # Set to false for existing certs
-  name: helios-admission-certs # If you're using existing certs change the name to existing secret name
+  name: lacework-admission-certs # If you're using existing certs change the name to existing secret name
   serverCertificate:
   serverKey:
   caCert:
@@ -38,8 +38,6 @@ certs:
 webhooks:
   caBundle:
   failurePolicy: Ignore
-  validatingWebhook:
-    name: helios-admission-hook-config
 
 podAnnotations: {}
 #  my-annotation-key: my value; more value
@@ -61,8 +59,8 @@ resources: {}
 nodeSelector: {}
 
 deployment:
-  image: lacework/helios
-  tag: v0.1
+  image: chitrapkumar/helios-go
+  tag: v1.6
   pullPolicy: Always
   replicaCount: 1
   service:

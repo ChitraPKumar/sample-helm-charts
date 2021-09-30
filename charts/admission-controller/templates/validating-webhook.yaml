@@ -1,9 +1,9 @@
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
-  name: {{ .Values.webhooks.validatingWebhook.name }}
+  name: {{ include "admission.fullname" . }}
 webhooks:
-  - name: validate.lacework.dev
+  - name: validate.lacework.net
     failurePolicy: {{ .Values.webhooks.failurePolicy }}
     sideEffects: "None"
     admissionReviewVersions: ["v1beta1"]
@@ -16,6 +16,6 @@ webhooks:
       caBundle: {{ .Values.webhooks.caBundle }}
       service:
         namespace: {{ .Release.Namespace }}
-        name: {{ include "helios.fullname" . }}
+        name: {{ include "admission.fullname" . }}
         path: "/validate"
     timeoutSeconds: 30

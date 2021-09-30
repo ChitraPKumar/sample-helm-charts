@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   labels:
     role: {{ .Release.Name }}
-    app: {{ include "helios.fullname" . }}
-  name: {{ include "helios.fullname" . }}
+    app: {{ include "admission.fullname" . }}
+  name: {{ include "admission.fullname" . }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   template:
     metadata:
       labels:
-        app: {{ include "helios.fullname" . }}
+        app: {{ include "admission.fullname" . }}
     spec:
       securityContext:
         runAsUser: 11431
@@ -18,7 +18,7 @@ spec:
         fsGroup: 11433
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
-        - name: {{ include "helios.name" . }}
+        - name: {{ include "admission.name" . }}
           image: "{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
           imagePullPolicy: {{ .Values.deployment.pullPolicy }}
           ports:
@@ -34,16 +34,16 @@ spec:
             - name: "certs"
               mountPath: "/certs"
               readOnly: true
-            - name: "helios-admission-volume"
+            - name: "lacework-admission-volume"
               mountPath: "/config"
               readOnly: true
       volumes:
         - name: "certs"
           secret:
             secretName: {{ .Values.certs.name }}
-        - name: "helios-admission-volume"
+        - name: "lacework-admission-volume"
           configMap:
-            name: "helios-cfgmap"
+            name: {{ include "admission.fullname" . }}
   selector:
     matchLabels:
-      app: {{ include "helios.fullname" . }}
+      app: {{ include "admission.fullname" . }}

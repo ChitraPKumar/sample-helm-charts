@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "0.0.2"
-version: 1.0.3
+version: 1.0.4
 name: admission-controller
 description: Lacework admission controller using Lacework proxy scanner
 type: application
@@ -8,7 +8,6 @@ keywords:
 - admission-controller
 - runtime-security
 - lacework
-- helios
 home: https://ChitraPKumar.github.io/admission-controller/
 maintainers:
   - name: chitrapkumar
