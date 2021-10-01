@@ -2,7 +2,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ .Values.name }}
+  labels:
+    role: {{ include "scanner.fullname" . }}
+  name: {{ include "scanner.fullname" . }}
 spec:
   selector:
     app: {{ .Values.name }}

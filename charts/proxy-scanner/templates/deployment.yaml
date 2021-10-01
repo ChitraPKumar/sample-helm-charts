@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}
+  name: {{ include "scanner.fullname" . }}
   labels:
-    app: {{ .Values.name }}
+    app: {{ include "scanner.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   minReadySeconds: 15
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ include "scanner.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ include "scanner.fullname" . }}
     spec:
       {{- if .Values.serviceAccount.enabled }}
       serviceAccountName: {{ .Values.name }}
       {{- end }}
 
       containers:
-      - name: {{ .Values.name }}
+      - name: {{ include "scanner.name" . }}
         image: {{ .Values.image }}
         env:
           - name: LOG_LEVEL
@@ -28,12 +28,14 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: config-volume
+        - name: certs
+          mountPath: /certs
+        - name: scanner-config-volume
           mountPath: /opt/lacework/config
       volumes:
       - name: "certs"
-          secret:
-            secretName: lacework-proxy-scanner-certs
-      - name: config-volume
+        secret:
+            secretName: {{ .Values.name }}-certs
+      - name: "scanner-config-volume"
         configMap:
-          name: configmap-proxy-scanner
+          name: {{ include "scanner.fullname" . }}

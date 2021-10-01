@@ -22,5 +22,7 @@ data:
         server: {{ .Values.scanner.server }}
         namespace: {{ .Values.scanner.namespace }}
         port: {{ .Values.scanner.port }}
+        protocol: {{ .Values.scanner.protocol }}
         path: {{ .Values.scanner.path }}
         timeout: {{ .Values.scanner.timeout }}
+        skipVerify: {{ .Values.scanner.skipVerify }}

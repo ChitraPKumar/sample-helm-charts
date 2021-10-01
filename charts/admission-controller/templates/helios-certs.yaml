@@ -3,6 +3,8 @@ kind: Secret
 metadata:
   name: {{ .Values.certs.name }}
 data:
-  ca.crt: {{ .Values.certs.caCert }} # root cert
+{{- if not .Values.scanner.skipVerify }}
+  ca.crt: {{ .Values.scanner.caCert }} # root CA for scanner
+{{- end }}
   admission.crt: {{ .Values.certs.serverCertificate }}  # place server cert
   admission.key: {{ .Values.certs.serverKey }}  # place server key

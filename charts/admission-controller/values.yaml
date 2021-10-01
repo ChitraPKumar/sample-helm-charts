@@ -17,7 +17,10 @@ scanner:
   server: "lacework-proxy-scanner"
   namespace: "lacework-dev"
   port: "8080"
+  protocol: "http"
   path: "v1/scan"
+  skipVerify: true
+  caCert:
   timeout: 30000
 
 # Kubernetes
@@ -27,13 +30,10 @@ fullnameOverride: "lacework-admission-controller"
 serviceAccount:
   name: lacework-admission-sa
 
-#TBD: Where is this really used?
 certs:
-  create: false # Set to false for existing certs
-  name: lacework-admission-certs # If you're using existing certs change the name to existing secret name
+  name: lacework-admission-certs
   serverCertificate:
   serverKey:
-  caCert:
 
 webhooks:
   caBundle:
@@ -59,8 +59,8 @@ resources: {}
 nodeSelector: {}
 
 deployment:
-  image: chitrapkumar/helios-go
-  tag: v1.6
+  image: lacework/helios
+  tag: v0.3
   pullPolicy: Always
   replicaCount: 1
   service:
