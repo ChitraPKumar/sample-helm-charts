@@ -3,9 +3,9 @@ entries:
   admission-controller:
   - apiVersion: v2
     appVersion: 0.0.2
-    created: "2021-09-30T06:41:45.427475106Z"
+    created: "2021-10-01T09:00:06.932731263Z"
     description: Lacework admission controller using Lacework proxy scanner
-    digest: b9ef59339aaa807f04899caa2b4ea4132cd83f5eb19b9c80807a86fbc761ea6e
+    digest: c4272e171ebb451e4018437f428ae2890927f6d900c43e9666644bc15f71fb01
     home: https://ChitraPKumar.github.io/admission-controller/
     keywords:
     - admission-controller
@@ -17,137 +17,18 @@ entries:
     name: admission-controller
     type: application
     urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.4/admission-controller-1.0.4.tgz
-    version: 1.0.4
-  - apiVersion: v2
-    appVersion: 0.0.2
-    created: "2021-09-29T23:13:03.611696438Z"
-    description: Lacework admission controller using Lacework proxy scanner
-    digest: 14858c9a03f1bd0043fc3df2ead54d48ef5868e9fa6f8cc2616f077f6f955ad7
-    home: https://ChitraPKumar.github.io/admission-controller/
-    keywords:
-    - admission-controller
-    - runtime-security
-    - lacework
-    - helios
-    maintainers:
-    - email: chitra.kumar@lacework.net
-      name: chitrapkumar
-    name: admission-controller
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.3/admission-controller-1.0.3.tgz
-    version: 1.0.3
-  - apiVersion: v2
-    appVersion: 0.0.2
-    created: "2021-09-29T22:58:58.008787119Z"
-    description: Lacework admission controller using Lacework proxy scanner
-    digest: e37884c484d469e99e468ff7ebd9c76f4f9455c95a5466c06a96b59e4ca222c4
-    home: https://ChitraPKumar.github.io/admission-controller/
-    keywords:
-    - admission-controller
-    - runtime-security
-    - lacework
-    - helios
-    maintainers:
-    - email: chitra.kumar@lacework.net
-      name: chitrapkumar
-    name: admission-controller
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.2/admission-controller-1.0.2.tgz
-    version: 1.0.2
-  - apiVersion: v2
-    appVersion: 0.0.2
-    created: "2021-09-28T23:17:32.876253622Z"
-    description: A Helm chart for Helios Admission Controller
-    digest: e4460b3275a5808dc9d95c55f4ff2460511b401911b98567f49ed62ed98c42fa
-    home: https://ChitraPKumar.github.io/admission-controller/
-    keywords:
-    - admission-controller
-    - runtime-security
-    - lacework
-    - helios
-    maintainers:
-    - name: Lacework
-    name: admission-controller
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.1/admission-controller-1.0.1.tgz
-    version: 1.0.1
-  helios-go:
-  - apiVersion: v2
-    appVersion: 0.0.2
-    created: "2021-09-28T23:01:31.220429751Z"
-    description: A Helm chart for Helios Admission Controller
-    digest: 925a15d1275213cef6514a0ceb0b7af2af4181e78f01b111ad6b7ab1a04a8042
-    home: https://ChitraPKumar.github.io/admission-controller/
-    keywords:
-    - admission-controller
-    - runtime-security
-    - lacework
-    - helios
-    maintainers:
-    - name: Lacework
-    name: helios-go
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/helios-go-1.0.0/helios-go-1.0.0.tgz
-    version: 1.0.0
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/admission-controller-1.0.5/admission-controller-1.0.5.tgz
+    version: 1.0.5
   proxy-scanner:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-09-28T23:17:32.993624657Z"
+    created: "2021-10-01T09:00:07.297503215Z"
     description: A Helm chart for Lacework Proxy Scanner
-    digest: 0b907944f4d04c749d8a32a2ff5de93cfa4c695d83bb47eb2ceb0694179264fb
+    digest: ded9b06b4999e83dc4db910cc50a535a7e214bf29c93d807550a743de5ec07fc
     home: https://ChitraPKumar.github.io/proxy-scanner/
     name: proxy-scanner
     type: application
     urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-1.0.1/proxy-scanner-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
-    appVersion: "1.0"
-    created: "2021-09-28T23:01:31.394579924Z"
-    description: A Helm chart for Lacework Proxy Scanner
-    digest: 0dcd412c6fa41c54b3ddf621fa698ce902afeb022226efa8acc78c05de065d5e
-    home: https://ChitraPKumar.github.io/proxy-scanner/
-    name: proxy-scanner
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-1.0.0/proxy-scanner-1.0.0.tgz
-    version: 1.0.0
-  - apiVersion: v2
-    appVersion: "1.0"
-    created: "2021-09-28T22:56:28.127687788Z"
-    description: A Helm chart for Lacework Proxy Scanner
-    digest: 5cd122d7bd63a6cddac0c958d59e03668fff3d614bfebbce8c770b07c56a21de
-    home: https://ChitraPKumar.github.io/proxy-scanner/
-    name: proxy-scanner
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-0.0.6/proxy-scanner-0.0.6.tgz
-    version: 0.0.6
-  - apiVersion: v2
-    appVersion: "1.0"
-    created: "2021-09-28T20:05:21.623054094Z"
-    description: A Helm chart for Lacework Proxy Scanner
-    digest: a109b6e5d4f682b1299533e03645a3c12d64f9d60eca2b580e154e3cbe0ec113
-    home: https://ChitraPKumar.github.io/proxy-scanner/
-    name: proxy-scanner
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-0.0.5/proxy-scanner-0.0.5.tgz
-    version: 0.0.5
-  - apiVersion: v2
-    appVersion: "1.0"
-    created: "2021-09-28T13:13:06.448380246Z"
-    description: A Helm chart for Lacework Proxy Scanner
-    digest: d9f7030cc9f813fba9ab5e449655fc0c730cefe1fe5a35874444fd479f4b007a
-    home: https://ChitraPKumar.github.io/proxy-scanner/
-    name: proxy-scanner
-    type: application
-    urls:
-    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-0.0.4/proxy-scanner-0.0.4.tgz
-    version: 0.0.4
-generated: "2021-09-28T13:13:06.059562605Z"
+    - https://github.com/ChitraPKumar/sample-helm-charts/releases/download/proxy-scanner-1.0.2/proxy-scanner-1.0.2.tgz
+    version: 1.0.2
+generated: "2021-10-01T09:00:06.582368137Z"
