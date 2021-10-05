@@ -18,4 +18,4 @@ webhooks:
         namespace: {{ .Release.Namespace }}
         name: {{ include "admission.fullname" . }}
         path: "/validate"
-    timeoutSeconds: 30
+    timeoutSeconds: {{ .Values.webhooks.timeoutSeconds }}

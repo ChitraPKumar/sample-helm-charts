@@ -4,19 +4,7 @@ metadata:
   name: {{ include "scanner.fullname" . }}
 data:
   config.yml: |
-    static_cache_location:
-    lacework:
-      account_name:
-      integration_access_token:
-    registries:
-      - domain:
-        ssl:
-        name:
-        auto_poll:
-        credentials:
-          user_name:
-          password:
-        poll_frequency_minutes:
+    {{- toYaml .Values.config | nindent 8 }}
   docker_apis.yml: |
     v2_registry:
       list_repositories:

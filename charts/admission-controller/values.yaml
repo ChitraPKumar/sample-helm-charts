@@ -16,12 +16,9 @@ policy:
 scanner:
   server: "lacework-proxy-scanner"
   namespace: "lacework-dev"
-  port: "8080"
-  protocol: "http"
-  path: "v1/scan"
   skipVerify: true
   caCert:
-  timeout: 30000
+  timeout: 30
 
 # Kubernetes
 nameOverride: "lacework-admission-controller"
@@ -38,6 +35,7 @@ certs:
 webhooks:
   caBundle:
   failurePolicy: Ignore
+  timeoutSeconds: 30
 
 podAnnotations: {}
 #  my-annotation-key: my value; more value

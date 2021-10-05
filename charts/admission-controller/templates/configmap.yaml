@@ -3,26 +3,22 @@ apiVersion: v1
 metadata:
   name: {{ include "admission.fullname" . }}
 data:
-  helios.yaml: |
+  admission.yaml: |
     ---
-    helios:
-      logger:
-        debug: {{ .Values.logger.debug }}
+    logger:
+      debug: {{ .Values.logger.debug }}
 
-      admission:
-        tls_port: {{ .Values.admission.tls_port }}
-        cert_file_path: {{ .Values.admission.cert_file_path }}
-        cert_key_path: {{ .Values.admission.cert_key_path }}
+    admission:
+      tls_port: {{ .Values.admission.tls_port }}
+      cert_file_path: {{ .Values.admission.cert_file_path }}
+      cert_key_path: {{ .Values.admission.cert_key_path }}
 
-      policy:
-        block_exec: {{ .Values.policy.block_exec }}
-        bypass_scope: {{ .Values.policy.bypass_scope }}
+    policy:
+      block_exec: {{ .Values.policy.block_exec }}
+      bypass_scope: {{ .Values.policy.bypass_scope }}
 
-      scanner:
-        server: {{ .Values.scanner.server }}
-        namespace: {{ .Values.scanner.namespace }}
-        port: {{ .Values.scanner.port }}
-        protocol: {{ .Values.scanner.protocol }}
-        path: {{ .Values.scanner.path }}
-        timeout: {{ .Values.scanner.timeout }}
-        skipVerify: {{ .Values.scanner.skipVerify }}
+    scanner:
+      server: {{ .Values.scanner.server }}
+      namespace: {{ .Values.scanner.namespace }}
+      timeout: {{ .Values.scanner.timeout }}
+      skipVerify: {{ .Values.scanner.skipVerify }}

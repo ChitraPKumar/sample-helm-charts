@@ -24,7 +24,7 @@ tar -xvf admission-controller-*.tar.gz --directory ~/lacework/.
    webhooks:
    caBundle: "<base64_encoded_ca.crt>"
 
-4. Update proxy scanner settings if required - port, protocol, skipVerify, caCert according to definitions provided below
+4. Update proxy scanner settings if required - port, skipVerify, caCert according to definitions provided below
 
 5. Install Validating webhook in the cluster
 cd lacework
@@ -57,13 +57,11 @@ scanner.caCert is used for SSL between Admission webhook and scanner
 | `policy.block_exec   `            | Set to enable deployment/pod block based on violation                       | `false`                   | `YES`                   |
 | `policy.bypass_scope`             | CSV of namespaces to bypass                                                 | `kube-system,kube-public,lacework,lacework-dev`     | `YES`                   |
 | `nodeSelector`                    | Kubernetes node selector                                                    | `{}`                      | `NO`                    |
-| `scanner.server`                  | Lacework proxy scanner name                                                 | `lacework-proxy-scanner`  | `NO`                   |
-| `scanner.namespace`               | Namespace in which it is deployed                                           | `lacework`                | `NO`                   |
-| `scanner.port`                    | Port on which it is listening                                               | `8080`                    | `NO`                   |
-| `scanner.protocol`                | http/https protocol to communicate with scanner                             | `http`                    | `NO`                   |
-| `scanner.skipVerify`              | SSL between the webhook and the scanner                                     | `true`                    | `YES`                   |
+| `scanner.server`                  | Lacework proxy scanner name                                                 | ``                        | `YES`                   |
+| `scanner.namespace`               | Namespace in which it is deployed                                           | ``                        | `YES`                   |
+| `scanner.skipVerify`              | SSL between the webhook and the scanner                                     | `true`                    | `NO`                    |
 | `scanner.caCert`                  | Root cert of scanner                                                        | `N/A`                     | `YES`                   |
-| `scanner.timeout`                 | Context deadline timeout                                                    | `30000`                   | `NO`                   |
+| `scanner.timeout`                 | Context deadline timeout                                                    | `30`                      | `NO`                    |
 
 
 ## Issues and feedback
