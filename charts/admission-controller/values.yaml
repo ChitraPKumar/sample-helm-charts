@@ -15,7 +15,7 @@ policy:
 
 scanner:
   server: "lacework-proxy-scanner"
-  namespace: "lacework-dev"
+  namespace: "lacework"
   skipVerify: true
   caCert:
   timeout: 30
@@ -58,7 +58,7 @@ nodeSelector: {}
 
 deployment:
   image: lacework/helios
-  tag: v0.3
+  tag: v0.4
   pullPolicy: Always
   replicaCount: 1
   service:
