@@ -7,6 +7,11 @@ webhooks:
     failurePolicy: {{ .Values.webhooks.failurePolicy }}
     sideEffects: "None"
     admissionReviewVersions: ["v1beta1"]
+    namespaceSelector:
+      matchExpressions:
+      - key: admission-webhook
+        operator: NotIn
+        values: ["false"]
     rules:
       - operations: ["CREATE", "CONNECT"]
         apiGroups: ["apps", ""]
