@@ -5,8 +5,6 @@
 replicaCount: 1
 image: lacework/proxy-scanner-private:0.2.1-09-13-2021
 
-# CK: Should have config map here too
-
 name: lacework-proxy-scanner
 serviceAccount:
   enabled: true
