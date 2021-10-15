@@ -35,11 +35,12 @@ kubectl get pods -n lacework-dev
     
 ## Adding helm repo
 helm repo add lacework https://lacework.github.io/helm-charts (not public yet)
-helm upgrade --install --create-namespace --namespace lacework \
---set webhooks.caBundle= ${WEBHOOK_ROOT_CA} \
---set certs.serverCertificate= ${WEBHOOK_SERVER_CERT}\
---set certs.serverKey= ${WEBHOOK_SERVER_KEY}\
---set scanner.caCert= ${SCANNER_ROOT_CA}\
+
+helm upgrade --install --create-namespace --namespace lacework \\
+--set webhooks.caBundle= ${WEBHOOK_ROOT_CA} \\
+--set certs.serverCertificate= ${WEBHOOK_SERVER_CERT}\\
+--set certs.serverKey= ${WEBHOOK_SERVER_KEY}\\
+--set scanner.caCert= ${SCANNER_ROOT_CA}\\
 lacework-admission-controller lacework/admission-controller
 
 Note: the above should be base 64 encoded certs/keys you have or generate using the script above

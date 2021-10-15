@@ -6,20 +6,19 @@ Instructions for using HELM charts to deploy the Lacework Proxy Scanner.
 More details can be found at https://support.lacework.com/hc/en-us/articles/1500004222981-Integrate-Proxy-Scanner
 
 config:
-static_cache_location: The static file mount location. The recommended path is /opt/lacework/cache
-lacework:
-account_name: Lacework account name
-integration_access_token: The integration's access token from the Lacework Console
-registries:
-- domain: The registry domain using one of these formats: YourIP:YourPort or YourDomain:YourPort
-  name: Unique registry name
-  ssl: Whether the registry uses SSL, enter true|false
-  auto_poll: If supported, whether to auto poll the registry, enter true|false
-  credentials:
-  user_name: User name to connect to the registry
-  password: Password to connect to the registry
-  poll_frequency_minutes: Polling frequency to fetch new images, 20 is the minimum value
-  scan_non_os_packages: Whether the scanner will search for non-OS library packages, such as for programming languages. Enter true|false.
+  static_cache_location: /opt/lacework
+  lacework:
+    account_name: 
+    integration_access_token: 
+  registries:
+    - domain: 
+      ssl: 
+      name: 
+      auto_poll: 
+      credentials:
+        user_name: 
+        password:
+      scan_non_os_packages:
 
 ## Using release packages
 
@@ -43,11 +42,12 @@ registries:
    
 ## Adding helm repo
 helm repo add lacework https://lacework.github.io/helm-charts (not public yet)
-helm upgrade --install --create-namespace --namespace lacework \
---set certs.skipCert = true \
---set certs.serverCertificate= ${SCANNER_CERT}\
---set certs.serverKey= ${SCANNER_KEY}\
---values values.yaml \
+
+helm upgrade --install --create-namespace --namespace lacework \\
+--set certs.skipCert = true \\
+--set certs.serverCertificate= ${SCANNER_CERT}\\
+--set certs.serverKey= ${SCANNER_KEY}\\
+--values values.yaml \\
 lacework-proxy-scanner lacework/proxy-scanner
 
 Note:
