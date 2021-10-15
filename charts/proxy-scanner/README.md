@@ -22,15 +22,17 @@ config:
 ```
 ## Using release packages
 
-1. Download the latest release of the proxy-scanner from the Releases page (not public yet)
+1. Download the latest release of the proxy-scanner from https://github.com/lacework/helm-charts
 
 2. Edit values.yaml (~/lacework/helm/proxy-scanner/values.yaml) to update the config information as cited above. [Required]
       
 3. To secure communication when used with the Lacework admission controller, 
    generate certs for this service and set the following values in values.yaml [Optional]
+   ```   
    skipCert: false
    serverCertificate: "<base64_encoded_admission.crt>"
    serverKey: "<base64_encoded_admission.key>"
+   ```
    Remember to keep the root CA cert carefully in order to populate that in Lacework admission controller settings.
 
 4. Install proxy scanner
@@ -42,7 +44,7 @@ config:
    
 ## Adding helm repo
 ```
-helm repo add lacework https://lacework.github.io/helm-charts (not public yet) 
+helm repo add lacework https://lacework.github.io/helm-charts 
 
 helm upgrade --install --create-namespace --namespace lacework \
     --set certs.skipCert = true \
