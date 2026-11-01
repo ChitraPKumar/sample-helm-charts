@@ -1,0 +1,29 @@
+name: Chart Ownership
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-ownership:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Validate chart maintainers
+        run: |
+          ruby -ryaml -e '
+            Dir.glob("charts/*/Chart.yaml").each do |path|
+              maintainers = YAML.safe_load_file(path)["maintainers"]
+              has_owner = maintainers.is_a?(Array) && maintainers.any? do |maintainer|
+                maintainer.is_a?(Hash) &&
+                  %w[name email].all? do |field|
+                    maintainer[field].is_a?(String) && !maintainer[field].strip.empty?
+                  end
+              end
+              abort "#{path} must declare a maintainer with a name and email" unless has_owner
+            end
+          '
